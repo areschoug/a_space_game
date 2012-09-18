@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		296DDD091608ED2200B58C6D /* fragment.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 296DDD051608ED2200B58C6D /* fragment.glsl */; };
+		296DDD0A1608ED2200B58C6D /* vertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 296DDD061608ED2200B58C6D /* vertex.glsl */; };
+		296DDD0B1608ED2200B58C6D /* GLProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 296DDD081608ED2200B58C6D /* GLProgram.m */; };
+		296DDD0E1608ED2F00B58C6D /* ProgramManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 296DDD0D1608ED2F00B58C6D /* ProgramManager.m */; };
+		296DDD111608ED4000B58C6D /* TextureCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 296DDD101608ED4000B58C6D /* TextureCache.m */; };
+		296DDD171608ED6E00B58C6D /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = 296DDD141608ED6E00B58C6D /* Entity.m */; };
+		296DDD181608ED6E00B58C6D /* Sprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 296DDD161608ED6E00B58C6D /* Sprite.m */; };
 		2995C4471608E65B008FD4B0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2995C4461608E65B008FD4B0 /* UIKit.framework */; };
 		2995C4491608E65B008FD4B0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2995C4481608E65B008FD4B0 /* Foundation.framework */; };
 		2995C44B1608E65B008FD4B0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2995C44A1608E65B008FD4B0 /* CoreGraphics.framework */; };
@@ -21,6 +28,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		296DDD051608ED2200B58C6D /* fragment.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fragment.glsl; sourceTree = "<group>"; };
+		296DDD061608ED2200B58C6D /* vertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vertex.glsl; sourceTree = "<group>"; };
+		296DDD071608ED2200B58C6D /* GLProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLProgram.h; sourceTree = "<group>"; };
+		296DDD081608ED2200B58C6D /* GLProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLProgram.m; sourceTree = "<group>"; };
+		296DDD0C1608ED2F00B58C6D /* ProgramManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramManager.h; sourceTree = "<group>"; };
+		296DDD0D1608ED2F00B58C6D /* ProgramManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramManager.m; sourceTree = "<group>"; };
+		296DDD0F1608ED4000B58C6D /* TextureCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureCache.h; sourceTree = "<group>"; };
+		296DDD101608ED4000B58C6D /* TextureCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextureCache.m; sourceTree = "<group>"; };
+		296DDD131608ED6E00B58C6D /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
+		296DDD141608ED6E00B58C6D /* Entity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entity.m; sourceTree = "<group>"; };
+		296DDD151608ED6E00B58C6D /* Sprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sprite.h; sourceTree = "<group>"; };
+		296DDD161608ED6E00B58C6D /* Sprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sprite.m; sourceTree = "<group>"; };
 		2995C4421608E65B008FD4B0 /* a_space_game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = a_space_game.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2995C4461608E65B008FD4B0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2995C4481608E65B008FD4B0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -56,6 +75,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		296DDD041608ECF500B58C6D /* OpenGL */ = {
+			isa = PBXGroup;
+			children = (
+				296DDD051608ED2200B58C6D /* fragment.glsl */,
+				296DDD061608ED2200B58C6D /* vertex.glsl */,
+				296DDD071608ED2200B58C6D /* GLProgram.h */,
+				296DDD081608ED2200B58C6D /* GLProgram.m */,
+				296DDD0C1608ED2F00B58C6D /* ProgramManager.h */,
+				296DDD0D1608ED2F00B58C6D /* ProgramManager.m */,
+				296DDD0F1608ED4000B58C6D /* TextureCache.h */,
+				296DDD101608ED4000B58C6D /* TextureCache.m */,
+			);
+			path = OpenGL;
+			sourceTree = "<group>";
+		};
+		296DDD121608ED5400B58C6D /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				296DDD131608ED6E00B58C6D /* Entity.h */,
+				296DDD141608ED6E00B58C6D /* Entity.m */,
+				296DDD151608ED6E00B58C6D /* Sprite.h */,
+				296DDD161608ED6E00B58C6D /* Sprite.m */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		296DDD191608ED8100B58C6D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		2995C4371608E65B008FD4B0 = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +141,9 @@
 		2995C44C1608E65B008FD4B0 /* a_space_game */ = {
 			isa = PBXGroup;
 			children = (
+				296DDD191608ED8100B58C6D /* Resources */,
+				296DDD121608ED5400B58C6D /* Game */,
+				296DDD041608ECF500B58C6D /* OpenGL */,
 				2995C4551608E65B008FD4B0 /* AppDelegate.h */,
 				2995C4561608E65B008FD4B0 /* AppDelegate.m */,
 				2995C4581608E65B008FD4B0 /* MainStoryboard.storyboard */,
@@ -163,6 +218,8 @@
 			files = (
 				2995C4511608E65B008FD4B0 /* InfoPlist.strings in Resources */,
 				2995C45A1608E65B008FD4B0 /* MainStoryboard.storyboard in Resources */,
+				296DDD091608ED2200B58C6D /* fragment.glsl in Resources */,
+				296DDD0A1608ED2200B58C6D /* vertex.glsl in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,6 +233,11 @@
 				2995C4531608E65B008FD4B0 /* main.m in Sources */,
 				2995C4571608E65B008FD4B0 /* AppDelegate.m in Sources */,
 				2995C45D1608E65B008FD4B0 /* ViewController.m in Sources */,
+				296DDD0B1608ED2200B58C6D /* GLProgram.m in Sources */,
+				296DDD0E1608ED2F00B58C6D /* ProgramManager.m in Sources */,
+				296DDD111608ED4000B58C6D /* TextureCache.m in Sources */,
+				296DDD171608ED6E00B58C6D /* Entity.m in Sources */,
+				296DDD181608ED6E00B58C6D /* Sprite.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,6 +313,7 @@
 		2995C4611608E65B008FD4B0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "a_space_game/a_space_game-Prefix.pch";
 				INFOPLIST_FILE = "a_space_game/a_space_game-Info.plist";
@@ -262,6 +325,7 @@
 		2995C4621608E65B008FD4B0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "a_space_game/a_space_game-Prefix.pch";
 				INFOPLIST_FILE = "a_space_game/a_space_game-Info.plist";
@@ -289,6 +353,7 @@
 				2995C4621608E65B008FD4B0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
