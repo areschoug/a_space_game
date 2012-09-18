@@ -51,4 +51,13 @@
     return _children;
 }
 
+- (GLKMatrix4) modelMatrix {
+    GLKMatrix4 modelMatrix = GLKMatrix4Identity;
+//    modelMatrix = GLKMatrix4Translate(modelMatrix, _position.x, _position.y, 0);
+//    modelMatrix = GLKMatrix4Translate(modelMatrix, - _size.width/2, -_size.height/2, 0);
+    modelMatrix = GLKMatrix4Translate(modelMatrix, 50, 50, 0);
+    modelMatrix = GLKMatrix4Translate(modelMatrix, 50, 50, 0);
+    return modelMatrix;
+}
+
 @end

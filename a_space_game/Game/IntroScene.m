@@ -14,7 +14,8 @@
 - (id)init {
     self = [super init];
     if(self) {
-        [self addChild:[Sprite spriteWithFile:@"temp_sprite"]];
+        Sprite *s = [Sprite spriteWithFile:@"temp_sprite"];
+        [self addChild:s];
     }
     return self;
 }

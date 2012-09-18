@@ -8,18 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
-//typedef struct
-//{
-//    char* Name;
-//    GLint Location;
-//}Uniform;
-//
-//typedef struct
-//{
-//    int NumberOfUniforms;
-//    Uniform* Uniform;
-//
-//}UniformInfo;
+enum {
+    UNIFORM_TEXTURE,
+    NUM_UNIFORMS
+};
+GLint uniforms[NUM_UNIFORMS];
+
+// Attribute index.
+enum {
+    ATTRIB_VERTEX,
+    ATTRIB_TEXTUREPOSITON,
+    NUM_ATTRIBUTES
+};
 
 @interface GLProgram : NSObject
 

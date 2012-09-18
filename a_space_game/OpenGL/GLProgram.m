@@ -8,20 +8,6 @@
 
 #import "GLProgram.h"
 
-enum {
-    UNIFORM_TEXTURE,
-    NUM_UNIFORMS
-};
-GLint uniforms[NUM_UNIFORMS];
-
-// Attribute index.
-enum {
-    ATTRIB_VERTEX,
-    ATTRIB_TEXTUREPOSITON,
-    NUM_ATTRIBUTES
-};
-
-
 @interface GLProgram(){
     GLuint _program;
 }

@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Andreas Areschoug. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <GLKit/GLKit.h>
 
 @interface Entity : NSObject
 
