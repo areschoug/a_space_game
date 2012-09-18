@@ -27,7 +27,7 @@ static TextureCache *_sharedTextureCache;
 - (id)init {
     self=[super init];
 	if(self) {
-		self.textures = [NSMutableDictionary dictionaryWithCapacity: 10];
+		self.textures = [NSMutableDictionary dictionaryWithCapacity:10];
     }
     return self;
 }

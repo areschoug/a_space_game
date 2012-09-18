@@ -32,7 +32,7 @@
 }
 
 - (void)draw {
-    // Override me
+    NSLog(@"DRAW");
 }
 
 - (void)visit {

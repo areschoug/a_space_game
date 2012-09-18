@@ -14,6 +14,8 @@
 		296DDD111608ED4000B58C6D /* TextureCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 296DDD101608ED4000B58C6D /* TextureCache.m */; };
 		296DDD171608ED6E00B58C6D /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = 296DDD141608ED6E00B58C6D /* Entity.m */; };
 		296DDD181608ED6E00B58C6D /* Sprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 296DDD161608ED6E00B58C6D /* Sprite.m */; };
+		296DDD201608F39300B58C6D /* Scene.m in Sources */ = {isa = PBXBuildFile; fileRef = 296DDD1F1608F39300B58C6D /* Scene.m */; };
+		296DDD231608F3B300B58C6D /* IntroScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 296DDD221608F3B200B58C6D /* IntroScene.m */; };
 		2995C4471608E65B008FD4B0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2995C4461608E65B008FD4B0 /* UIKit.framework */; };
 		2995C4491608E65B008FD4B0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2995C4481608E65B008FD4B0 /* Foundation.framework */; };
 		2995C44B1608E65B008FD4B0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2995C44A1608E65B008FD4B0 /* CoreGraphics.framework */; };
@@ -40,6 +42,10 @@
 		296DDD141608ED6E00B58C6D /* Entity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entity.m; sourceTree = "<group>"; };
 		296DDD151608ED6E00B58C6D /* Sprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sprite.h; sourceTree = "<group>"; };
 		296DDD161608ED6E00B58C6D /* Sprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sprite.m; sourceTree = "<group>"; };
+		296DDD1E1608F39300B58C6D /* Scene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scene.h; sourceTree = "<group>"; };
+		296DDD1F1608F39300B58C6D /* Scene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Scene.m; sourceTree = "<group>"; };
+		296DDD211608F3B200B58C6D /* IntroScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroScene.h; sourceTree = "<group>"; };
+		296DDD221608F3B200B58C6D /* IntroScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroScene.m; sourceTree = "<group>"; };
 		2995C4421608E65B008FD4B0 /* a_space_game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = a_space_game.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2995C4461608E65B008FD4B0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2995C4481608E65B008FD4B0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -97,6 +103,10 @@
 				296DDD141608ED6E00B58C6D /* Entity.m */,
 				296DDD151608ED6E00B58C6D /* Sprite.h */,
 				296DDD161608ED6E00B58C6D /* Sprite.m */,
+				296DDD1E1608F39300B58C6D /* Scene.h */,
+				296DDD1F1608F39300B58C6D /* Scene.m */,
+				296DDD211608F3B200B58C6D /* IntroScene.h */,
+				296DDD221608F3B200B58C6D /* IntroScene.m */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -146,9 +156,9 @@
 				296DDD041608ECF500B58C6D /* OpenGL */,
 				2995C4551608E65B008FD4B0 /* AppDelegate.h */,
 				2995C4561608E65B008FD4B0 /* AppDelegate.m */,
-				2995C4581608E65B008FD4B0 /* MainStoryboard.storyboard */,
 				2995C45B1608E65B008FD4B0 /* ViewController.h */,
 				2995C45C1608E65B008FD4B0 /* ViewController.m */,
+				2995C4581608E65B008FD4B0 /* MainStoryboard.storyboard */,
 				2995C44D1608E65B008FD4B0 /* Supporting Files */,
 			);
 			path = a_space_game;
@@ -238,6 +248,8 @@
 				296DDD111608ED4000B58C6D /* TextureCache.m in Sources */,
 				296DDD171608ED6E00B58C6D /* Entity.m in Sources */,
 				296DDD181608ED6E00B58C6D /* Sprite.m in Sources */,
+				296DDD201608F39300B58C6D /* Scene.m in Sources */,
+				296DDD231608F3B300B58C6D /* IntroScene.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

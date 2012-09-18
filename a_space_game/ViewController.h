@@ -6,8 +6,12 @@
 //  Copyright (c) 2012 Andreas Areschoug. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <GLKit/GLKit.h>
+#import "Scene.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : GLKViewController
+
+- (void)pushScene:(Scene *)scene;
++ (ViewController*)sharedDirector;
 
 @end

@@ -7,13 +7,16 @@
 //
 
 #import "AppDelegate.h"
+#import "ViewController.h"
+#import "IntroScene.h"
 
 @implementation AppDelegate
 
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    // Override point for customization after application launch.
+    
+    [[ViewController sharedDirector] pushScene:[IntroScene build]];
+    
     return YES;
 }
 							
