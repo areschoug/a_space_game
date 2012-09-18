@@ -8,6 +8,7 @@
 
 #import "MainView.h"
 #import "Scene.h"
+#import "IntroScene.h"
 
 static MainView* _sharedDirector = nil;
 
@@ -56,12 +57,14 @@ static MainView* _sharedDirector = nil;
     
     GLKView *view = (GLKView *)self.view;
     view.context = self.context;
+    [EAGLContext setCurrentContext:self.context];
     //view.drawableDepthFormat = GLKViewDrawableDepthFormat16;
     //view.drawableMultisample = GLKViewDrawableMultisample4X;
+    
+    [self pushScene:[IntroScene build]];
 }
 
-- (void)setNextScene
-{
+- (void)setNextScene {
     self.currentScene = self.nextScene;
     self.nextScene = nil;
 }
@@ -71,6 +74,8 @@ static MainView* _sharedDirector = nil;
     if(_nextScene) [self setNextScene];
     
     [_currentScene visit];
+    
+    
 }
 
 - (void)update {

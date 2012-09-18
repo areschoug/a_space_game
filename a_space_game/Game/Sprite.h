@@ -18,5 +18,5 @@
 @property (strong, nonatomic) GLProgram *program;
 
 + (id)spriteWithFile:(NSString*)filename;
-
+- (id)initWithFile:(NSString*)fileName;
 @end

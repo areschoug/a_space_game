@@ -11,13 +11,10 @@
 
 @implementation IntroScene
 
-- (id)init
-{
+- (id)init {
     self = [super init];
-    if(self)
-    {
-        Sprite* sprite = [[Sprite alloc] init];
-        [self addChild:sprite];
+    if(self) {
+        [self addChild:[Sprite spriteWithFile:@"temp_sprite"]];
     }
     return self;
 }

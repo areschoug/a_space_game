@@ -35,12 +35,16 @@ static TextureCache *_sharedTextureCache;
 - (GLKTextureInfo*)addImage:(NSString *)fileName {
     GLKTextureInfo *textureInfo = [self.textures objectForKey:fileName];
     if(!textureInfo) {
+        
         NSError *error;
-        NSString* filePath;
-        filePath = [[NSBundle mainBundle] pathForResource:fileName ofType:@"png"];
-        textureInfo = [GLKTextureLoader textureWithContentsOfFile:filePath options:nil error:&error];
+        NSDictionary *options = @{ GLKTextureLoaderOriginBottomLeft : @(YES) };
+        NSString *filePath = [[NSBundle mainBundle] pathForResource:fileName ofType:@"png"];
+        
+        textureInfo = [GLKTextureLoader textureWithContentsOfFile:filePath options:options error:&error];
+        
+        
         if(error) {
-            NSLog(@"Error loading texture from image: %@", error);
+            NSLog(@"\nERRPR LOADING TEXTURE FROM IMAGE:\n\nNAME:%@\n\nPATH:%@\n\nERROR:%@",fileName,filePath,error);
         }
     }
     return textureInfo;

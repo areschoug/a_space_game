@@ -14,6 +14,8 @@
 
 - (void)draw {
     //TODO:Draw
+    
+
 }
 
 - (id)initWithFile:(NSString*)fileName {

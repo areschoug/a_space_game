@@ -15,8 +15,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
     
-    [[MainView sharedDirector] pushScene:[IntroScene build]];
-    
     return YES;
 }
 							
