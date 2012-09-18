@@ -9,7 +9,7 @@
         <scene sceneID="Oza-jm-oQH">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ubJ-u5-TpH" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <glkViewController autoresizesArchivedViewToFullSize="NO" preferredFramesPerSecond="30" id="v5f-Cg-69a" sceneMemberID="viewController">
+                <glkViewController autoresizesArchivedViewToFullSize="NO" preferredFramesPerSecond="30" id="v5f-Cg-69a" customClass="MainView" sceneMemberID="viewController">
                     <glkView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="DaH-CX-H23">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,6 +22,11 @@
             <point key="canvasLocation" x="306" y="124"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="MainView" superclassName="GLKViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainView.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

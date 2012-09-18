@@ -9,9 +9,9 @@
 #import <GLKit/GLKit.h>
 #import "Scene.h"
 
-@interface ViewController : GLKViewController
+@interface MainView : GLKViewController
 
 - (void)pushScene:(Scene *)scene;
-+ (ViewController*)sharedDirector;
++ (MainView*)sharedDirector;
 
 @end

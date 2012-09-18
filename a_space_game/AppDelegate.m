@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "ViewController.h"
+#import "MainView.h"
 #import "IntroScene.h"
 
 @implementation AppDelegate
@@ -15,7 +15,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
     
-    [[ViewController sharedDirector] pushScene:[IntroScene build]];
+    [[MainView sharedDirector] pushScene:[IntroScene build]];
     
     return YES;
 }

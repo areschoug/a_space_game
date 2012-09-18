@@ -13,7 +13,7 @@
 @synthesize program = _program;
 
 - (void)draw {
-    NSLog(@"Drawing a sprite");
+    //TODO:Draw
 }
 
 - (id)initWithFile:(NSString*)fileName {

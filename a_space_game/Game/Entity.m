@@ -32,7 +32,7 @@
 }
 
 - (void)draw {
-    NSLog(@"DRAW");
+
 }
 
 - (void)visit {
