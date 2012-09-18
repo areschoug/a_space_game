@@ -1,12 +1,10 @@
-uniform mediump mat4 ModelViewProjectionMatrix;
+attribute vec4 position;
+attribute vec4 inputTextureCoordinate;
 
-attribute mediump vec3 VertexPosition;
-attribute mediump vec2 VertexTextureCoordinate;
+varying vec2 textureCoordinate;
 
-varying mediump vec2 FragmentTextureCoordinate;
-
-void main( void ) 
+void main()
 {
-    gl_Position = ModelViewProjectionMatrix * vec4(VertexPosition, 1.0);
-    FragmentTextureCoordinate = VertexTextureCoordinate;
-} 
+	gl_Position = position;
+	textureCoordinate = inputTextureCoordinate.xy;
+}

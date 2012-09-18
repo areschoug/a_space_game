@@ -8,6 +8,20 @@
 
 #import "GLProgram.h"
 
+enum {
+    UNIFORM_TEXTURE,
+    NUM_UNIFORMS
+};
+GLint uniforms[NUM_UNIFORMS];
+
+// Attribute index.
+enum {
+    ATTRIB_VERTEX,
+    ATTRIB_TEXTUREPOSITON,
+    NUM_ATTRIBUTES
+};
+
+
 @interface GLProgram(){
     GLuint _program;
 }
@@ -54,35 +68,120 @@
     return shaderHandle;
 }
 
+- (BOOL)loadVertexShader:(NSString *)vertexShaderName fragmentShader:(NSString *)fragmentShaderName forProgram:(GLuint *)programPointer{
+    
+    GLuint vertexShader, fragShader;
+    
+    // Create shader program.
+    *programPointer = glCreateProgram();
+    
+    NSString *vertShaderPathname = [[NSBundle mainBundle] pathForResource:vertexShaderName ofType:@"glsl"];
+    if (![self compileShader:&vertexShader type:GL_VERTEX_SHADER file:vertShaderPathname]){
+        NSLog(@"Failed to compile vertex shader");
+        return FALSE;
+    }
+    
+    NSString *fragShaderPathname = [[NSBundle mainBundle] pathForResource:fragmentShaderName ofType:@"glsl"];
+    if (![self compileShader:&fragShader type:GL_FRAGMENT_SHADER file:fragShaderPathname]){
+        NSLog(@"Failed to compile fragment shader");
+        return FALSE;
+    }
+    
+    glAttachShader(*programPointer, vertexShader);
+    glAttachShader(*programPointer, fragShader);
+    
+    glBindAttribLocation(*programPointer, ATTRIB_VERTEX, "position");
+    glBindAttribLocation(*programPointer, ATTRIB_TEXTUREPOSITON, "inputTextureCoordinate");
+    
+    if (![self linkProgram:*programPointer]){
+        NSLog(@"Failed to link program: %d", *programPointer);
+        
+        if (vertexShader){
+            glDeleteShader(vertexShader);
+            vertexShader = 0;
+        }
+        
+        if (fragShader) {
+            glDeleteShader(fragShader);
+            fragShader = 0;
+        }
+        
+        if (*programPointer){
+            glDeleteProgram(*programPointer);
+            *programPointer = 0;
+        }
+        
+        return FALSE;
+    }
+    
+    uniforms[UNIFORM_TEXTURE] = glGetUniformLocation(*programPointer, "textureFrame");
+    
+    if (vertexShader) glDeleteShader(vertexShader);
+    if (fragShader) glDeleteShader(fragShader);
+    
+    return TRUE;
+}
+
+- (BOOL)compileShader:(GLuint *)shader type:(GLenum)type file:(NSString *)file {
+    GLint status;
+    const GLchar *source;
+    
+    source = (GLchar *)[[NSString stringWithContentsOfFile:file encoding:NSUTF8StringEncoding error:nil] UTF8String];
+    if (!source){
+        NSLog(@"Failed to load vertex shader");
+        return FALSE;
+    }
+    
+    *shader = glCreateShader(type);
+    glShaderSource(*shader, 1, &source, NULL);
+    glCompileShader(*shader);
+    
+    glGetShaderiv(*shader, GL_COMPILE_STATUS, &status);
+    if (status == 0){
+        glDeleteShader(*shader);
+        return FALSE;
+    }
+    
+    return TRUE;
+}
+
+- (BOOL)linkProgram:(GLuint)prog {
+    GLint status;
+    
+    glLinkProgram(prog);
+    
+    glGetProgramiv(prog, GL_LINK_STATUS, &status);
+    if (status == 0)
+        return FALSE;
+    
+    return TRUE;
+}
+
+- (BOOL)validateProgram:(GLuint)prog {
+    GLint logLength, status;
+    
+    glValidateProgram(prog);
+    glGetProgramiv(prog, GL_INFO_LOG_LENGTH, &logLength);
+    if (logLength > 0) {
+        GLchar *log = (GLchar *)malloc(logLength);
+        glGetProgramInfoLog(prog, logLength, &logLength, log);
+        NSLog(@"Program validate log:\n%s", log);
+        free(log);
+    }
+    
+    glGetProgramiv(prog, GL_VALIDATE_STATUS, &status);
+    if (status == 0){
+        return FALSE;
+    }
+    
+    return TRUE;
+}
+
 - (id)initWithVertexShader:(NSString*)vertexShaderName fragmentShader:(NSString*)fragmentShaderName {
     self = [super init];
     if (self) {
-        // Compile both shaders
-        GLuint vertexShader = [self compileShader:vertexShaderName withType:GL_VERTEX_SHADER];
-        GLuint fragmentShader = [self compileShader:fragmentShaderName withType:GL_FRAGMENT_SHADER];
-        
-        // Create the program in openGL, attach the shaders and link them
-        GLuint programHandle = glCreateProgram();
-        glAttachShader(programHandle, vertexShader);
-        glAttachShader(programHandle, fragmentShader);
-        glLinkProgram(programHandle);
-        
-        // Get the error message in case the linking has failed
-        GLint linkSuccess;
-        glGetProgramiv(programHandle, GL_LINK_STATUS, &linkSuccess);
-        if (linkSuccess == GL_FALSE) {
-            GLint logLength;
-            glGetProgramiv(programHandle, GL_INFO_LOG_LENGTH, &logLength);
-            if(logLength > 0) {
-                GLchar *log = (GLchar *)malloc(logLength);
-                glGetProgramInfoLog(programHandle, logLength, &logLength, log);
-                NSLog(@"Program link log:\n%s", log);
-                free(log);
-            }
-            exit(1);
-        }
-        
-        _program =  programHandle;
+        [self loadVertexShader:@"vertex" fragmentShader:@"fragment" forProgram:&_program];
+
     }
     return self;
 }
