@@ -15,6 +15,9 @@
 		2995C4571608E65B008FD4B0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2995C4561608E65B008FD4B0 /* AppDelegate.m */; };
 		2995C45A1608E65B008FD4B0 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2995C4581608E65B008FD4B0 /* MainStoryboard.storyboard */; };
 		2995C45D1608E65B008FD4B0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2995C45C1608E65B008FD4B0 /* ViewController.m */; };
+		2995C4641608E6C3008FD4B0 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2995C4631608E6C3008FD4B0 /* GLKit.framework */; };
+		2995C4661608E6C9008FD4B0 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2995C4651608E6C9008FD4B0 /* OpenGLES.framework */; };
+		2995C4681608E6CF008FD4B0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2995C4671608E6CF008FD4B0 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +34,9 @@
 		2995C4591608E65B008FD4B0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		2995C45B1608E65B008FD4B0 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		2995C45C1608E65B008FD4B0 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		2995C4631608E6C3008FD4B0 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		2995C4651608E6C9008FD4B0 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		2995C4671608E6CF008FD4B0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +44,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2995C4681608E6CF008FD4B0 /* QuartzCore.framework in Frameworks */,
+				2995C4661608E6C9008FD4B0 /* OpenGLES.framework in Frameworks */,
+				2995C4641608E6C3008FD4B0 /* GLKit.framework in Frameworks */,
 				2995C4471608E65B008FD4B0 /* UIKit.framework in Frameworks */,
 				2995C4491608E65B008FD4B0 /* Foundation.framework in Frameworks */,
 				2995C44B1608E65B008FD4B0 /* CoreGraphics.framework in Frameworks */,
@@ -67,6 +76,9 @@
 		2995C4451608E65B008FD4B0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2995C4671608E6CF008FD4B0 /* QuartzCore.framework */,
+				2995C4651608E6C9008FD4B0 /* OpenGLES.framework */,
+				2995C4631608E6C3008FD4B0 /* GLKit.framework */,
 				2995C4461608E65B008FD4B0 /* UIKit.framework */,
 				2995C4481608E65B008FD4B0 /* Foundation.framework */,
 				2995C44A1608E65B008FD4B0 /* CoreGraphics.framework */,
