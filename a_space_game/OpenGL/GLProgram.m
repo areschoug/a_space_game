@@ -101,6 +101,7 @@
     }
     
     uniforms[UNIFORM_TEXTURE] = glGetUniformLocation(*programPointer, "textureFrame");
+    uniforms[UNIFORM_PROJECTION] = glGetUniformLocation(*programPointer, "projection");
     
     if (vertexShader) glDeleteShader(vertexShader);
     if (fragShader) glDeleteShader(fragShader);

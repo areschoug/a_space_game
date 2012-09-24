@@ -10,6 +10,7 @@
 
 enum {
     UNIFORM_TEXTURE,
+    UNIFORM_PROJECTION,
     NUM_UNIFORMS
 };
 GLint uniforms[NUM_UNIFORMS];

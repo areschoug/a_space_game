@@ -58,10 +58,14 @@ static MainView* _sharedDirector = nil;
     GLKView *view = (GLKView *)self.view;
     view.context = self.context;
     [EAGLContext setCurrentContext:self.context];
+
     //view.drawableDepthFormat = GLKViewDrawableDepthFormat16;
     //view.drawableMultisample = GLKViewDrawableMultisample4X;
     
+    
+    
     [self pushScene:[IntroScene build]];
+    
 }
 
 - (void)setNextScene {
@@ -69,8 +73,13 @@ static MainView* _sharedDirector = nil;
     self.nextScene = nil;
 }
 
-- (void)glkView:(GLKView *)view drawInRect:(CGRect)rect
-{
+- (void)glkView:(GLKView *)view drawInRect:(CGRect)rect {
+        
+    glClearColor(1, 1, 1, 1);
+    glClear(GL_COLOR_BUFFER_BIT);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glEnable(GL_BLEND);
+    
     if(_nextScene) [self setNextScene];
     
     [_currentScene visit];
