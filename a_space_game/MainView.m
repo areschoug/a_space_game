@@ -88,7 +88,8 @@ static MainView* _sharedDirector = nil;
 
 - (void)update {
     //TODO:Update
-    //int td = self.timeSinceLastUpdate;
+    int td = self.timeSinceLastUpdate;
+    
 }
 
 - (void)viewDidUnload {

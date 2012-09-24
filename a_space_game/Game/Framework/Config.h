@@ -7,6 +7,8 @@
 //
 
 
+//DECORATIONS
+#define kGameDecorationNumberOf 20
+#define kGameDecorationRandom arc4random() % kGameDecorationNumberOf
 
-#define kGameNumberOfDecorations 2
-#define kGameRandomDecoration arc4random() % kGameNumberOfDecorations
+#define kGameDecorationAddRate 1

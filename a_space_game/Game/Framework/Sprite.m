@@ -32,6 +32,7 @@ static const GLfloat textureVertices[] = {
 
 - (void)draw {
     [_program use];
+    [self updatePosition];
     
     glViewport(_position.x, _position.y, _textureInfo.width, _textureInfo.height);
     
@@ -48,6 +49,11 @@ static const GLfloat textureVertices[] = {
     
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 
+}
+
+-(void)updatePosition{
+    _position.x += _velocity.x;
+    _position.y += _velocity.y;
 }
 
 - (id)initWithFile:(NSString*)fileName {

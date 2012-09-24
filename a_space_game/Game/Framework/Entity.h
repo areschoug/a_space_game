@@ -16,5 +16,6 @@
 - (id)init;
 - (void)visit;
 - (void)addChild:(Entity*)child;
+- (void)draw;
 
 @end

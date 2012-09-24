@@ -9,17 +9,31 @@
 #import "IntroScene.h"
 #import "Decoration.h"
 
-@implementation IntroScene
+@implementation IntroScene{
+    NSTimeInterval lastAddedDecoration;
+}
 
 - (id)init {
     self = [super init];
     if(self) {
-        Decoration *dec = [[Decoration alloc] init];
-        dec.position = CGPointMake(320, 250);
-        [self addChild:dec];
 
+        
     }
     return self;
+}
+
+-(void)draw{
+
+    if (lastAddedDecoration > kGameDecorationAddRate) {
+        Decoration *dec = [[Decoration alloc] init];
+        dec.position = CGPointMake(320, 500);
+        dec.velocity = CGPointMake(0, 0.1);
+        [self addChild:dec];
+        NSLog(@"ADDED");
+    } else {
+        NSLog(@"%f %i",lastAddedDecoration,kGameDecorationAddRate);
+    }
+    
 }
 
 @end

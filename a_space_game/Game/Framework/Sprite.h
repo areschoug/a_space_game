@@ -17,6 +17,7 @@
 @property (strong, nonatomic) GLKTextureInfo *textureInfo;
 @property (strong, nonatomic) GLProgram *program;
 @property (readwrite, nonatomic) CGPoint position;
+@property (readwrite, nonatomic) CGPoint velocity;
 
 + (id)spriteWithFile:(NSString*)filename;
 - (id)initWithFile:(NSString*)fileName;

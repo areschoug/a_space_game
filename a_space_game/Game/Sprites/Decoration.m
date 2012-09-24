@@ -11,7 +11,7 @@
 @implementation Decoration
 
 - (id)init {
-    self = [super initWithFile:[NSString stringWithFormat:@"decoration_%i",kGameRandomDecoration]];
+    self = [super initWithFile:[NSString stringWithFormat:@"decoration_%i",kGameDecorationRandom]];
     if (self) {
         
     }
