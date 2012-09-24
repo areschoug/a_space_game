@@ -73,9 +73,10 @@ static MainView* _sharedDirector = nil;
 }
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect {
-    
+        
     glClearColor(0.071, 0.008, 0.098, 1);
     glClear(GL_COLOR_BUFFER_BIT);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glEnable(GL_BLEND);
     
     if(_nextScene) [self setNextScene];

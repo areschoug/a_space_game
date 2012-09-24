@@ -7,17 +7,15 @@
 //
 
 #import "IntroScene.h"
-#import "Sprite.h"
+#import "Decoration.h"
 
 @implementation IntroScene
 
 - (id)init {
     self = [super init];
     if(self) {
-        Sprite *s = [Sprite spriteWithFile:@"temp_sprite_three"];
-        Sprite *s2 = [Sprite spriteWithFile:@"temp_sprite_two"];
-        [self addChild:s2];
-        [self addChild:s];
+        Decoration *dec = [[Decoration alloc] init];
+        [self addChild:dec];
 
     }
     return self;
