@@ -59,7 +59,6 @@ static const GLfloat textureVertices[] = {
 - (id)initWithFile:(NSString*)fileName {
     self = [super init];
     if(self) {
-        NSLog(@"[ADDED DECORATION]%@",fileName);
         _textureInfo = [[TextureCache sharedTextureCache] addImage:fileName];
         _program = [[ProgramManager sharedProgramManager] getDefaultProgram];
         

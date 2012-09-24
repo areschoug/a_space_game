@@ -7,6 +7,7 @@
 //
 
 #import "TextureCache.h"
+#import "Config.h"
 
 static TextureCache *_sharedTextureCache;
 
@@ -35,7 +36,6 @@ static TextureCache *_sharedTextureCache;
 
 - (GLKTextureInfo*)addImage:(NSString *)fileName {
     GLKTextureInfo *textureInfo = [self.textures objectForKey:fileName];
-    NSLog(@"TEXT COUNT%i",self.textures.count);
     if(!textureInfo) {
         
         NSError *error;
@@ -46,19 +46,19 @@ static TextureCache *_sharedTextureCache;
         
         if(error) {
             NSLog(@"\nERRPR LOADING TEXTURE FROM IMAGE:\n\nNAME:%@\n\nPATH:%@\n\nERROR:%@",fileName,filePath,error);
-        } else {
-            [self.textures setObject:textureInfo forKey:fileName];
+            return nil;
         }
+    
+        [self.textures setObject:textureInfo forKey:fileName];
+        
     }
     return textureInfo;
 }
 
 - (void)loadAll{
 
-    for (int i = 0; i < 20; i++) {
-        NSString *s = [NSString stringWithFormat:@"decoration_%i",i];
-        NSLog(@"%@",s);
-        [self addImage:s];
+    for (int i = 0; i < kGameDecorationNumberOf; i++) {
+        [self addImage:[NSString stringWithFormat:@"decoration_%i",i]];
     }
 }
 

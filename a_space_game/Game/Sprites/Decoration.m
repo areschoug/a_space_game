@@ -18,7 +18,6 @@
     return self;
 }
 
-
 + (id)randomDecoration {
 	return [[self alloc] initWithFile:[NSString stringWithFormat:@"decoration_%i",kGameDecorationRandom]];
 }
