@@ -22,21 +22,7 @@ static const GLfloat textureVertices[] = {
     0.0f,  0.0f,
 };
 
-typedef struct {
-    CGPoint geometryVertex;
-    CGPoint textureVertex;
-} TexturedVertex;
-
-typedef struct {
-    TexturedVertex bl;
-    TexturedVertex br;
-    TexturedVertex tl;
-    TexturedVertex tr;
-} TexturedQuad;
-
 @interface Sprite()
-
-@property(assign) TexturedQuad textureQuad;
 
 @end
 
@@ -70,17 +56,7 @@ typedef struct {
         _textureInfo = [[TextureCache sharedTextureCache] addImage:fileName];
         _program = [[ProgramManager sharedProgramManager] getDefaultProgram];
         
-        TexturedQuad quad;
-        quad.bl.geometryVertex = CGPointMake(0, 0);
-        quad.br.geometryVertex = CGPointMake(_textureInfo.width, 0);
-        quad.tl.geometryVertex = CGPointMake(0, _textureInfo.height);
-        quad.tr.geometryVertex = CGPointMake(_textureInfo.width, _textureInfo.height);
-        
-        quad.bl.textureVertex = CGPointMake(0, 0);
-        quad.br.textureVertex = CGPointMake(1, 0);
-        quad.tl.textureVertex = CGPointMake(0, 1);
-        quad.tr.textureVertex = CGPointMake(1, 1);
-        _textureQuad = quad;
+
     }
     return self;
 }

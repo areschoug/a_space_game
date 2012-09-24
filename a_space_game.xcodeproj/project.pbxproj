@@ -87,6 +87,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		291BC1201610F10C007BEDA6 /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				296DDD131608ED6E00B58C6D /* Entity.h */,
+				296DDD141608ED6E00B58C6D /* Entity.m */,
+				296DDD151608ED6E00B58C6D /* Sprite.h */,
+				296DDD161608ED6E00B58C6D /* Sprite.m */,
+				296DDD1E1608F39300B58C6D /* Scene.h */,
+				296DDD1F1608F39300B58C6D /* Scene.m */,
+			);
+			path = Framework;
+			sourceTree = "<group>";
+		};
 		296DDD041608ECF500B58C6D /* OpenGL */ = {
 			isa = PBXGroup;
 			children = (
@@ -105,12 +118,7 @@
 		296DDD121608ED5400B58C6D /* Game */ = {
 			isa = PBXGroup;
 			children = (
-				296DDD131608ED6E00B58C6D /* Entity.h */,
-				296DDD141608ED6E00B58C6D /* Entity.m */,
-				296DDD151608ED6E00B58C6D /* Sprite.h */,
-				296DDD161608ED6E00B58C6D /* Sprite.m */,
-				296DDD1E1608F39300B58C6D /* Scene.h */,
-				296DDD1F1608F39300B58C6D /* Scene.m */,
+				291BC1201610F10C007BEDA6 /* Framework */,
 				296DDD211608F3B200B58C6D /* IntroScene.h */,
 				296DDD221608F3B200B58C6D /* IntroScene.m */,
 			);
