@@ -11,4 +11,6 @@
 
 @interface Scene : Entity
 
+-(void)update:(double)td;
+
 @end

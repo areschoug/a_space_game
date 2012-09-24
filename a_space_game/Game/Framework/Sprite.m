@@ -35,7 +35,7 @@ static const GLfloat textureVertices[] = {
     [self updatePosition];
     
     glViewport(_position.x, _position.y, _textureInfo.width, _textureInfo.height);
-    
+    glEnable(GL_TEXTURE);    
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, _textureInfo.name);
     
@@ -59,6 +59,7 @@ static const GLfloat textureVertices[] = {
 - (id)initWithFile:(NSString*)fileName {
     self = [super init];
     if(self) {
+        NSLog(@"[ADDED DECORATION]%@",fileName);
         _textureInfo = [[TextureCache sharedTextureCache] addImage:fileName];
         _program = [[ProgramManager sharedProgramManager] getDefaultProgram];
         

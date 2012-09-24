@@ -9,6 +9,7 @@
 #import "MainView.h"
 #import "Scene.h"
 #import "IntroScene.h"
+#import "TextureCache.h"
 
 static MainView* _sharedDirector = nil;
 
@@ -62,6 +63,7 @@ static MainView* _sharedDirector = nil;
     view.drawableDepthFormat = GLKViewDrawableDepthFormat16;
     view.drawableMultisample = GLKViewDrawableMultisample4X;
     
+    [[TextureCache sharedTextureCache] loadAll];
     
     [self pushScene:[IntroScene build]];
     
@@ -88,7 +90,8 @@ static MainView* _sharedDirector = nil;
 
 - (void)update {
     //TODO:Update
-    int td = self.timeSinceLastUpdate;
+
+    [_currentScene update:self.timeSinceLastUpdate];
     
 }
 

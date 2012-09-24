@@ -14,5 +14,6 @@
 + (TextureCache*) sharedTextureCache;
 
 - (GLKTextureInfo*)addImage:(NSString*)fileName;
+- (void)loadAll;
 
 @end

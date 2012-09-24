@@ -27,13 +27,15 @@ static TextureCache *_sharedTextureCache;
 - (id)init {
     self=[super init];
 	if(self) {
-		self.textures = [NSMutableDictionary dictionaryWithCapacity:10];
+		self.textures = [[NSMutableDictionary alloc] init];
+
     }
     return self;
 }
 
 - (GLKTextureInfo*)addImage:(NSString *)fileName {
     GLKTextureInfo *textureInfo = [self.textures objectForKey:fileName];
+    NSLog(@"TEXT COUNT%i",self.textures.count);
     if(!textureInfo) {
         
         NSError *error;
@@ -42,12 +44,22 @@ static TextureCache *_sharedTextureCache;
         
         textureInfo = [GLKTextureLoader textureWithContentsOfFile:filePath options:options error:&error];
         
-        
         if(error) {
             NSLog(@"\nERRPR LOADING TEXTURE FROM IMAGE:\n\nNAME:%@\n\nPATH:%@\n\nERROR:%@",fileName,filePath,error);
+        } else {
+            [self.textures setObject:textureInfo forKey:fileName];
         }
     }
     return textureInfo;
+}
+
+- (void)loadAll{
+
+    for (int i = 0; i < 20; i++) {
+        NSString *s = [NSString stringWithFormat:@"decoration_%i",i];
+        NSLog(@"%@",s);
+        [self addImage:s];
+    }
 }
 
 @end

@@ -10,7 +10,6 @@
 
 @interface Decoration : Sprite
 
-
-
++ (id)randomDecoration;
 
 @end

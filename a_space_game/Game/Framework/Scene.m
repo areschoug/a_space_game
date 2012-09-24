@@ -10,4 +10,8 @@
 
 @implementation Scene
 
+-(void)update:(double)td{
+
+}
+
 @end

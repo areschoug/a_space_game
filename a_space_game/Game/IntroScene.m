@@ -10,30 +10,37 @@
 #import "Decoration.h"
 
 @implementation IntroScene{
-    NSTimeInterval lastAddedDecoration;
+    float lastAddedDecoration;
 }
 
 - (id)init {
     self = [super init];
     if(self) {
-
+        Decoration *dec = [Decoration randomDecoration];
+        dec.position = CGPointMake(320, 500);
+        dec.velocity = CGPointMake(0, 0.1);
+        [self addChild:dec];
+        
+        Decoration *dec2 = [Decoration randomDecoration];
+        dec2.position = CGPointMake(320, 100);
+        dec2.velocity = CGPointMake(0, 0.1);
+        [self addChild:dec2];
         
     }
     return self;
 }
 
--(void)draw{
-
+-(void)update:(NSTimeInterval)td{
+    lastAddedDecoration += td;
+    
     if (lastAddedDecoration > kGameDecorationAddRate) {
-        Decoration *dec = [[Decoration alloc] init];
-        dec.position = CGPointMake(320, 500);
-        dec.velocity = CGPointMake(0, 0.1);
+        lastAddedDecoration = 0;
+        Decoration *dec = [Decoration randomDecoration];
+        dec.position = CGPointMake(320, 900);
+        dec.velocity = CGPointMake(0, -3);
         [self addChild:dec];
         NSLog(@"ADDED");
-    } else {
-        NSLog(@"%f %i",lastAddedDecoration,kGameDecorationAddRate);
-    }
-    
+    } 
 }
 
 @end
