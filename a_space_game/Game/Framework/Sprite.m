@@ -33,7 +33,7 @@ static const GLfloat textureVertices[] = {
 - (void)draw {
     [_program use];
     
-    glViewport(100, 100, _textureInfo.width, _textureInfo.height);
+    glViewport(_position.x, _position.y, _textureInfo.width, _textureInfo.height);
     
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, _textureInfo.name);

@@ -15,6 +15,7 @@
     self = [super init];
     if(self) {
         Decoration *dec = [[Decoration alloc] init];
+        dec.position = CGPointMake(320, 250);
         [self addChild:dec];
 
     }

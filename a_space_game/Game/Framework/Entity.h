@@ -7,6 +7,7 @@
 //
 
 #import <GLKit/GLKit.h>
+#import "Config.h"
 
 @interface Entity : NSObject
 
