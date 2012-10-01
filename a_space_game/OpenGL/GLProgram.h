@@ -10,12 +10,11 @@
 
 enum {
     UNIFORM_TEXTURE,
-    UNIFORM_PROJECTION,
+    UNIFORM_COLOR,
     NUM_UNIFORMS
 };
 GLint uniforms[NUM_UNIFORMS];
 
-// Attribute index.
 enum {
     ATTRIB_VERTEX,
     ATTRIB_TEXTUREPOSITON,

@@ -15,6 +15,15 @@
 
 @implementation GLProgram
 
+- (id)initWithVertexShader:(NSString*)vertexShaderName fragmentShader:(NSString*)fragmentShaderName {
+    self = [super init];
+    if (self) {
+        [self loadVertexShader:@"vertex" fragmentShader:@"fragment" forProgram:&_program];
+        
+    }
+    return self;
+}
+
 - (GLuint)compileShader:(NSString*)shaderName withType:(GLenum)shaderType {
     // Load the shader in memory
     NSString *shaderPath = [[NSBundle mainBundle] pathForResource:shaderName ofType:@"glsl"];
@@ -78,6 +87,7 @@
     
     glBindAttribLocation(*programPointer, ATTRIB_VERTEX, "position");
     glBindAttribLocation(*programPointer, ATTRIB_TEXTUREPOSITON, "inputTextureCoordinate");
+
     
     if (![self linkProgram:*programPointer]){
         NSLog(@"Failed to link program: %d", *programPointer);
@@ -101,7 +111,7 @@
     }
     
     uniforms[UNIFORM_TEXTURE] = glGetUniformLocation(*programPointer, "textureFrame");
-    uniforms[UNIFORM_PROJECTION] = glGetUniformLocation(*programPointer, "projection");
+    uniforms[UNIFORM_COLOR] = glGetUniformLocation(*programPointer, "color");
     
     if (vertexShader) glDeleteShader(vertexShader);
     if (fragShader) glDeleteShader(fragShader);
@@ -164,48 +174,8 @@
     return TRUE;
 }
 
-- (id)initWithVertexShader:(NSString*)vertexShaderName fragmentShader:(NSString*)fragmentShaderName {
-    self = [super init];
-    if (self) {
-        [self loadVertexShader:@"vertex" fragmentShader:@"fragment" forProgram:&_program];
-
-    }
-    return self;
-}
-
 - (void)use {
     glUseProgram(_program);
 }
-
-//+ (UniformInfo)getUniforms:(GLuint)program
-//{
-//    GLint maxUniformLength;
-//    GLint numberOfUniforms;
-//    char *uniformName;
-//    UniformInfo uniformArray;
-//    
-//    // Get the number of uniforms and the max length of their names
-//    glGetProgramiv(program, GL_ACTIVE_UNIFORMS, &numberOfUniforms);
-//    glGetProgramiv(program, GL_ACTIVE_UNIFORM_MAX_LENGTH, &maxUniformLength);
-//    
-//    uniformArray.Uniform = malloc(numberOfUniforms * sizeof(Uniform));
-//    uniformArray.NumberOfUniforms = numberOfUniforms;
-//    
-//    for(int i = 0; i < numberOfUniforms; i++)
-//    {
-//        GLint size;
-//        GLenum type;
-//        GLint location;
-//        // Get the Uniform Info
-//        uniformName = malloc(sizeof(char) * maxUniformLength);
-//        glGetActiveUniform(program, i, maxUniformLength, NULL, &size, &type, uniformName);
-//        uniformArray.Uniform[i].Name = uniformName;
-//        // Get the uniform location
-//        location = glGetUniformLocation(program, uniformName);
-//        uniformArray.Uniform[i].Location = location;
-//    }
-//    
-//    return uniformArray;
-//}
 
 @end

@@ -26,7 +26,12 @@ static const GLfloat textureVertices[] = {
 
 @end
 
-@implementation Sprite
+@implementation Sprite{
+
+    GLfloat _colorValues[4];
+}
+
+
 @synthesize textureInfo = _textureInfo;
 @synthesize program = _program;
 
@@ -39,13 +44,14 @@ static const GLfloat textureVertices[] = {
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, _textureInfo.name);
     
+    glUniform4f(uniforms[UNIFORM_COLOR], _colorValues[0], _colorValues[1], _colorValues[2], _colorValues[3]);
+    
     glUniform1f(uniforms[UNIFORM_TEXTURE], 0);
     
     glVertexAttribPointer(ATTRIB_VERTEX, 2, GL_FLOAT, 0, 0, squareVertices);
 	glEnableVertexAttribArray(ATTRIB_VERTEX);
 	glVertexAttribPointer(ATTRIB_TEXTUREPOSITON, 2, GL_FLOAT, 0, 0, textureVertices);
 	glEnableVertexAttribArray(ATTRIB_TEXTUREPOSITON);
-	
     
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 
@@ -61,14 +67,26 @@ static const GLfloat textureVertices[] = {
     if(self) {
         _textureInfo = [[TextureCache sharedTextureCache] addImage:fileName];
         _program = [[ProgramManager sharedProgramManager] getDefaultProgram];
-        
-
+        [self setColor:[UIColor colorWithRed:0.549 green:0.192 blue:0.678 alpha:1]];
     }
     return self;
 }
 
 + (id)spriteWithFile:(NSString*)filename {
 	return [[self alloc] initWithFile:filename];
+}
+
+-(void)setColor:(UIColor *)color{
+    CGColorRef colorref = [color CGColor];
+    
+    int numComponents = CGColorGetNumberOfComponents(colorref);
+    if (numComponents == 4) {
+        const CGFloat *components = CGColorGetComponents(colorref);
+        _colorValues[0] = components[0];
+        _colorValues[1] = components[1];
+        _colorValues[2] = components[2];
+        _colorValues[3] = components[3];
+    }
 }
 
 @end

@@ -18,6 +18,7 @@
 @property (strong, nonatomic) GLProgram *program;
 @property (readwrite, nonatomic) CGPoint position;
 @property (readwrite, nonatomic) CGPoint velocity;
+@property (strong, nonatomic) UIColor *color;
 
 + (id)spriteWithFile:(NSString*)filename;
 - (id)initWithFile:(NSString*)fileName;

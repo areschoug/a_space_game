@@ -11,15 +11,14 @@
 @implementation Decoration
 
 - (id)init {
-    self = [super initWithFile:[NSString stringWithFormat:@"decoration_%i",kGameDecorationRandom]];
+    self = [super initWithFile:[NSString stringWithFormat:@"decoration_test_%i",kGameDecorationRandom]];
     if (self) {
-        
     }
     return self;
 }
 
 + (id)randomDecoration {
-	return [[self alloc] initWithFile:[NSString stringWithFormat:@"decoration_%i",kGameDecorationRandom]];
+	return [[self alloc] initWithFile:[NSString stringWithFormat:@"decoration_test_%i",kGameDecorationRandom]];
 }
 
 
