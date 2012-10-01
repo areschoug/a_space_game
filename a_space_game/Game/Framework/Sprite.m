@@ -41,14 +41,11 @@ static const GLfloat textureVertices[] = {
     [self updatePosition];
     
     glViewport(_position.x, _position.y, _textureInfo.width, _textureInfo.height);
-    glEnable(GL_TEXTURE);    
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, _textureInfo.name);
     
     glUniform4f(uniforms[UNIFORM_COLOR], _colorValues[0], _colorValues[1], _colorValues[2], _colorValues[3]);
-    
-    glUniform1f(uniforms[UNIFORM_TEXTURE], 0);
-    
+       
     glVertexAttribPointer(ATTRIB_VERTEX, 2, GL_FLOAT, 0, 0, squareVertices);
 	glEnableVertexAttribArray(ATTRIB_VERTEX);
 	glVertexAttribPointer(ATTRIB_TEXTUREPOSITON, 2, GL_FLOAT, 0, 0, textureVertices);
