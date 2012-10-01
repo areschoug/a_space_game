@@ -40,11 +40,6 @@ static MainView* _sharedDirector = nil;
 	return _sharedDirector;
 }
 
-- (IBAction)buttonPushed:(id)sender {
-
-}
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
