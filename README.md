@@ -3,6 +3,6 @@ a_space_game
 
 To do:
 - Rotate sprite
-- Two shaders
-	- Texture color
-	- Colorize white -> black color
+
+Keep in mind:
+- Remove child. How?
