@@ -11,4 +11,4 @@
 #define kGameDecorationNumberOf 3
 #define kGameDecorationRandom arc4random() % kGameDecorationNumberOf
 
-#define kGameDecorationAddRate 1
+#define kGameDecorationAddRate 1/60
