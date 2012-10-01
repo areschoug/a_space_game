@@ -48,6 +48,11 @@
 		2995C4641608E6C3008FD4B0 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2995C4631608E6C3008FD4B0 /* GLKit.framework */; };
 		2995C4661608E6C9008FD4B0 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2995C4651608E6C9008FD4B0 /* OpenGLES.framework */; };
 		2995C4681608E6CF008FD4B0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2995C4671608E6CF008FD4B0 /* QuartzCore.framework */; };
+		29E5B37D161A2C8B00CDA386 /* color_fragment.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 29E5B37B161A2C8A00CDA386 /* color_fragment.glsl */; };
+		29E5B37E161A2C8B00CDA386 /* color_vertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 29E5B37C161A2C8B00CDA386 /* color_vertex.glsl */; };
+		29E5B382161A2D6F00CDA386 /* decoration_test_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 29E5B37F161A2D6F00CDA386 /* decoration_test_0.png */; };
+		29E5B383161A2D6F00CDA386 /* decoration_test_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 29E5B380161A2D6F00CDA386 /* decoration_test_1.png */; };
+		29E5B384161A2D6F00CDA386 /* decoration_test_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 29E5B381161A2D6F00CDA386 /* decoration_test_2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -106,6 +111,11 @@
 		2995C4631608E6C3008FD4B0 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		2995C4651608E6C9008FD4B0 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		2995C4671608E6CF008FD4B0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		29E5B37B161A2C8A00CDA386 /* color_fragment.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = color_fragment.glsl; sourceTree = "<group>"; };
+		29E5B37C161A2C8B00CDA386 /* color_vertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = color_vertex.glsl; sourceTree = "<group>"; };
+		29E5B37F161A2D6F00CDA386 /* decoration_test_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = decoration_test_0.png; sourceTree = "<group>"; };
+		29E5B380161A2D6F00CDA386 /* decoration_test_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = decoration_test_1.png; sourceTree = "<group>"; };
+		29E5B381161A2D6F00CDA386 /* decoration_test_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = decoration_test_2.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +160,9 @@
 		291BC1261610F524007BEDA6 /* Decorations */ = {
 			isa = PBXGroup;
 			children = (
+				29E5B37F161A2D6F00CDA386 /* decoration_test_0.png */,
+				29E5B380161A2D6F00CDA386 /* decoration_test_1.png */,
+				29E5B381161A2D6F00CDA386 /* decoration_test_2.png */,
 				291BC1271610F543007BEDA6 /* decoration_0.png */,
 				291BC12A1610F7B3007BEDA6 /* decoration_1.png */,
 				291BC12C1610FAD5007BEDA6 /* decoration_2.png */,
@@ -177,6 +190,8 @@
 		296DDD041608ECF500B58C6D /* OpenGL */ = {
 			isa = PBXGroup;
 			children = (
+				29E5B37B161A2C8A00CDA386 /* color_fragment.glsl */,
+				29E5B37C161A2C8B00CDA386 /* color_vertex.glsl */,
 				296DDD051608ED2200B58C6D /* fragment.glsl */,
 				296DDD061608ED2200B58C6D /* vertex.glsl */,
 				296DDD071608ED2200B58C6D /* GLProgram.h */,
@@ -341,6 +356,11 @@
 				291BC14C1610FAD6007BEDA6 /* decoration_18.png in Resources */,
 				291BC14D1610FAD6007BEDA6 /* decoration_19.png in Resources */,
 				291BC153161103BA007BEDA6 /* decoration_12.png in Resources */,
+				29E5B37D161A2C8B00CDA386 /* color_fragment.glsl in Resources */,
+				29E5B37E161A2C8B00CDA386 /* color_vertex.glsl in Resources */,
+				29E5B382161A2D6F00CDA386 /* decoration_test_0.png in Resources */,
+				29E5B383161A2D6F00CDA386 /* decoration_test_1.png in Resources */,
+				29E5B384161A2D6F00CDA386 /* decoration_test_2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

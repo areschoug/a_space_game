@@ -58,7 +58,7 @@ static TextureCache *_sharedTextureCache;
 - (void)loadAll{
 
     for (int i = 0; i < kGameDecorationNumberOf; i++) {
-        [self addImage:[NSString stringWithFormat:@"decoration_%i",i]];
+        [self addImage:[NSString stringWithFormat:@"decoration_test_%i",i]];
     }
 }
 

@@ -18,7 +18,7 @@
 - (id)initWithVertexShader:(NSString*)vertexShaderName fragmentShader:(NSString*)fragmentShaderName {
     self = [super init];
     if (self) {
-        [self loadVertexShader:@"vertex" fragmentShader:@"fragment" forProgram:&_program];
+        [self loadVertexShader:vertexShaderName fragmentShader:fragmentShaderName forProgram:&_program];
         
     }
     return self;

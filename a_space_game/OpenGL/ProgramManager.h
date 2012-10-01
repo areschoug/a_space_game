@@ -14,5 +14,5 @@
 + (ProgramManager*)sharedProgramManager;
 
 - (GLProgram*)getDefaultProgram;
-
+- (GLProgram*)getDefaultColorProgram;
 @end

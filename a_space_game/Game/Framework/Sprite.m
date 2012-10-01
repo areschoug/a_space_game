@@ -66,8 +66,9 @@ static const GLfloat textureVertices[] = {
     self = [super init];
     if(self) {
         _textureInfo = [[TextureCache sharedTextureCache] addImage:fileName];
-        _program = [[ProgramManager sharedProgramManager] getDefaultProgram];
-        [self setColor:[UIColor colorWithRed:0.549 green:0.192 blue:0.678 alpha:1]];
+        _program = [[ProgramManager sharedProgramManager] getDefaultColorProgram];
+        
+        [self setColor:[UIColor colorWithRed:0.549 green:0.192 blue:0.678 alpha:1.0]];
     }
     return self;
 }
