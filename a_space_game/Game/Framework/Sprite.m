@@ -36,6 +36,7 @@ static const GLfloat textureVertices[] = {
 @synthesize program = _program;
 
 - (void)draw {
+    
     [_program use];
     [self updatePosition];
     
@@ -88,6 +89,27 @@ static const GLfloat textureVertices[] = {
         _colorValues[2] = components[2];
         _colorValues[3] = components[3];
     }
+}
+
+-(void)visit{
+    [super visit];
+    
+    if (_allowToRemove && !self.shouldBeRemoved) {
+        BOOL left = (_velocity.x < 0) ? YES : NO;
+        BOOL up = (_velocity.y < 0) ? YES : NO;
+        
+        CGRect rect = [[[UIApplication sharedApplication]keyWindow]frame];
+
+        BOOL removeVertical;
+        
+        if (up) removeVertical = (_position.y < 0) ? YES : NO;
+        else removeVertical = (_position.y > rect.size.height) ? YES : NO;
+
+
+        self.shouldBeRemoved = removeVertical;
+
+    }
+
 }
 
 @end

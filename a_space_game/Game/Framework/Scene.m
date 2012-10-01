@@ -7,11 +7,29 @@
 //
 
 #import "Scene.h"
+#import "Sprite.h"
 
 @implementation Scene
 
 -(void)update:(double)td{
 
+}
+
+-(void)clean{
+
+    for (Entity *entity in self.children) {
+        if ([entity isKindOfClass:[Sprite class]]) {
+            
+            Sprite *sprite = (Sprite *)entity;
+            if (sprite.shouldBeRemoved){
+
+                sprite = nil;
+//                sprite.velocity = CGPointMake(0, 0);
+
+
+            }
+        }
+    }
 }
 
 @end

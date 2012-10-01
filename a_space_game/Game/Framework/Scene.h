@@ -13,4 +13,6 @@
 
 -(void)update:(double)td;
 
+-(void)clean; // Clean from all sprites that wount be shown again
+
 @end

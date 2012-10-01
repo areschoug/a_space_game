@@ -11,6 +11,10 @@
 
 @interface Entity : NSObject
 
+@property (strong, nonatomic) NSMutableSet *children;
+@property (assign, nonatomic) BOOL shouldBeRemoved;
+@property (assign, nonatomic) int shouldRemove;
+
 + (id)build;
 
 - (id)init;

@@ -40,6 +40,10 @@ static MainView* _sharedDirector = nil;
 	return _sharedDirector;
 }
 
+- (IBAction)buttonPushed:(id)sender {
+
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -82,7 +86,6 @@ static MainView* _sharedDirector = nil;
     glEnable(GL_BLEND);
     
     if(_nextScene) [self setNextScene];
-    
     [_currentScene visit];
     
     

@@ -9,7 +9,7 @@
 #import "Entity.h"
 
 @interface Entity()
-@property (strong, nonatomic) NSMutableArray *children;
+
 @end
 
 @implementation Entity
@@ -26,7 +26,7 @@
 - (id)init {
     self = [super init];
     if(self) {
-        
+        _shouldRemove = 0;
     }
     return self;
 }
@@ -36,18 +36,18 @@
 }
 
 - (void)visit {
+    if (!self.shouldBeRemoved) [self draw];
+    
     if(_children) {
-        for (Entity* child in self.children) {
-            [child visit];
-        }
+        for (Entity* child in self.children) [child visit];
     }
-    [self draw];
+
+    
+    
 }
 
-- (NSMutableArray*)children {
-    if (!_children) {
-        _children = [NSMutableArray array];
-    }
+- (NSMutableSet*)children {
+    if (!_children) _children = [NSMutableSet set];
     return _children;
 }
 

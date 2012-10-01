@@ -19,6 +19,7 @@
 @property (readwrite, nonatomic) CGPoint position;
 @property (readwrite, nonatomic) CGPoint velocity;
 @property (strong, nonatomic) UIColor *color;
+@property (assign, nonatomic) BOOL allowToRemove;
 
 + (id)spriteWithFile:(NSString*)filename;
 - (id)initWithFile:(NSString*)fileName;

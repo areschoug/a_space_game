@@ -13,5 +13,6 @@
 
 - (void)pushScene:(Scene *)scene;
 + (MainView*)sharedDirector;
+- (IBAction)buttonPushed:(id)sender;
 
 @end
