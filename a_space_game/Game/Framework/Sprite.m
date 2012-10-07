@@ -31,34 +31,9 @@ static const GLfloat textureVertices[] = {
     GLfloat _colorValues[4];
 }
 
-
 @synthesize textureInfo = _textureInfo;
 @synthesize program = _program;
 
-- (void)draw {
-    
-    [_program use];
-    [self updatePosition];
-    
-    glViewport(_position.x, _position.y, _textureInfo.width, _textureInfo.height);
-    glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, _textureInfo.name);
-    
-    glUniform4f(uniforms[UNIFORM_COLOR], _colorValues[0], _colorValues[1], _colorValues[2], _colorValues[3]);
-       
-    glVertexAttribPointer(ATTRIB_VERTEX, 2, GL_FLOAT, 0, 0, squareVertices);
-	glEnableVertexAttribArray(ATTRIB_VERTEX);
-	glVertexAttribPointer(ATTRIB_TEXTUREPOSITON, 2, GL_FLOAT, 0, 0, textureVertices);
-	glEnableVertexAttribArray(ATTRIB_TEXTUREPOSITON);
-    
-    glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
-
-}
-
--(void)updatePosition{
-    _position.x += _velocity.x;
-    _position.y += _velocity.y;
-}
 
 - (id)initWithFile:(NSString*)fileName {
     self = [super init];
@@ -70,6 +45,40 @@ static const GLfloat textureVertices[] = {
     }
     return self;
 }
+
+
+- (void)draw {
+    
+    [_program use];
+    [self updatePosition];
+
+    
+    glViewport(_position.x, _position.y, _textureInfo.width, _textureInfo.height);
+    
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, _textureInfo.name);
+    
+    glUniform4f(uniforms[UNIFORM_COLOR], _colorValues[0], _colorValues[1], _colorValues[2], _colorValues[3]);
+
+    glVertexAttribPointer(ATTRIB_VERTEX, 2, GL_FLOAT, 0, 0, squareVertices);
+	glEnableVertexAttribArray(ATTRIB_VERTEX);
+	glVertexAttribPointer(ATTRIB_TEXTUREPOSITON, 2, GL_FLOAT, 0, 0, textureVertices);
+	glEnableVertexAttribArray(ATTRIB_TEXTUREPOSITON);
+
+
+    
+    glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+
+
+
+
+}
+
+-(void)updatePosition{
+    _position.x += _velocity.x;
+    _position.y += _velocity.y;
+}
+
 
 + (id)spriteWithFile:(NSString*)filename {
 	return [[self alloc] initWithFile:filename];
@@ -96,14 +105,26 @@ static const GLfloat textureVertices[] = {
         BOOL up = (_velocity.y < 0) ? YES : NO;
         
         CGRect rect = [[[UIApplication sharedApplication]keyWindow]frame];
+        float scale = [[[[UIApplication sharedApplication]keyWindow]screen] scale];
 
         BOOL removeVertical;
+        BOOL removeHorizontal;
         
-        if (up) removeVertical = (_position.y < 0) ? YES : NO;
-        else removeVertical = (_position.y > rect.size.height) ? YES : NO;
+        float height = (float) _textureInfo.height;
+        float width = (float) _textureInfo.width;
+        
+        if (up) removeVertical = (_position.y < -height) ? YES : NO;
+        else removeVertical = (_position.y > (rect.size.height * scale) + height) ? YES : NO;
 
+        if (left) removeHorizontal = (_position.x < -width) ? YES : NO;
+        else removeHorizontal = (_position.x > (rect.size.width * scale) + width) ? YES : NO;
+        
+        removeHorizontal = NO;
+        
+        if (removeVertical || removeHorizontal){
+            self.shouldBeRemoved = YES;
+        }
 
-        self.shouldBeRemoved = removeVertical;
 
     }
 

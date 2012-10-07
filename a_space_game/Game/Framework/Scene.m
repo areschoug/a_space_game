@@ -21,13 +21,7 @@
         if ([entity isKindOfClass:[Sprite class]]) {
             
             Sprite *sprite = (Sprite *)entity;
-            if (sprite.shouldBeRemoved){
-
-                sprite = nil;
-//                sprite.velocity = CGPointMake(0, 0);
-
-
-            }
+            if (sprite.shouldBeRemoved) sprite = nil;
         }
     }
 }

@@ -21,6 +21,7 @@
 @property (strong, nonatomic) UIColor *color;
 @property (assign, nonatomic) BOOL allowToRemove;
 
+
 + (id)spriteWithFile:(NSString*)filename;
 - (id)initWithFile:(NSString*)fileName;
 @end
