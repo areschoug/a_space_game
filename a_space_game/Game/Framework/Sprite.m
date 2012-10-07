@@ -66,6 +66,7 @@ static const GLfloat textureVertices[] = {
 	glEnableVertexAttribArray(ATTRIB_TEXTUREPOSITON);
 
 
+
     
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 
