@@ -80,9 +80,6 @@ static const GLfloat textureVertices[] = {
     
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 
-
-
-
 }
 
 -(void)updatePosition{
@@ -111,8 +108,6 @@ static const GLfloat textureVertices[] = {
 -(void)visit{
     [super visit];
     
-    
-    
     if (_allowToRemove && !self.shouldBeRemoved) {
         BOOL left = (_velocity.x < 0) ? YES : NO;
         BOOL up = (_velocity.y < 0) ? YES : NO;
@@ -132,12 +127,8 @@ static const GLfloat textureVertices[] = {
         if (left) removeHorizontal = (_position.x < -width) ? YES : NO;
         else removeHorizontal = (_position.x > (rect.size.width * scale) + width) ? YES : NO;
         
-        if (removeVertical || removeHorizontal){
-            self.shouldBeRemoved = YES;
-        }
-
-
-
+        if (removeVertical || removeHorizontal) self.shouldBeRemoved = YES;
+        
     }
 
 }
