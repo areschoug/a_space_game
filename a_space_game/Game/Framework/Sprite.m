@@ -29,7 +29,7 @@ static const GLfloat textureVertices[] = {
 @end
 
 @implementation Sprite{
-
+    int _removed;
     GLfloat _colorValues[4];
 }
 
@@ -54,15 +54,14 @@ static const GLfloat textureVertices[] = {
     [_program use];
     [self updatePosition];
 
-    //PROJECTION
     CC3GLMatrix *projection = [CC3GLMatrix matrix];
     float h = 4.0f * _textureInfo.height / _textureInfo.width;
-    [projection populateFromFrustumLeft:-2 andRight:2 andBottom:-h/2 andTop:h/2 andNear:4 andFar:10];
+    [projection populateFromFrustumLeft:-2 andRight:2 andBottom:-h/2 andTop:h/2 andNear:6 andFar:10];
     glUniformMatrix4fv(uniforms[UNIFORM_PROJECTION], 1, 0, projection.glMatrix);
     
     CC3GLMatrix *modelView = [CC3GLMatrix matrix];
     [modelView populateFromTranslation:CC3VectorMake(0, 0, -7)];
-    [modelView rotateByZ:(sin(CACurrentMediaTime()) + 1.0) * 180];
+    [modelView rotateByZ:_rotation];
     glUniformMatrix4fv(uniforms[UNIFORM_MODELVIEW], 1, 0, modelView.glMatrix);
     
     glUniform4f(uniforms[UNIFORM_COLOR], _colorValues[0], _colorValues[1], _colorValues[2], _colorValues[3]);
@@ -112,6 +111,8 @@ static const GLfloat textureVertices[] = {
 -(void)visit{
     [super visit];
     
+    
+    
     if (_allowToRemove && !self.shouldBeRemoved) {
         BOOL left = (_velocity.x < 0) ? YES : NO;
         BOOL up = (_velocity.y < 0) ? YES : NO;
@@ -131,11 +132,10 @@ static const GLfloat textureVertices[] = {
         if (left) removeHorizontal = (_position.x < -width) ? YES : NO;
         else removeHorizontal = (_position.x > (rect.size.width * scale) + width) ? YES : NO;
         
-        removeHorizontal = NO;
-        
         if (removeVertical || removeHorizontal){
             self.shouldBeRemoved = YES;
         }
+
 
 
     }

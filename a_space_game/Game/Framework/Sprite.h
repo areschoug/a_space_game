@@ -16,11 +16,12 @@
 
 @property (strong, nonatomic) GLKTextureInfo *textureInfo;
 @property (strong, nonatomic) GLProgram *program;
-@property (readwrite, nonatomic) CGPoint position;
-@property (readwrite, nonatomic) CGPoint velocity;
 @property (strong, nonatomic) UIColor *color;
 @property (assign, nonatomic) BOOL allowToRemove;
 
+@property (readwrite, nonatomic) CGPoint position;
+@property (readwrite, nonatomic) CGPoint velocity;
+@property (readwrite, nonatomic) CGFloat rotation;
 
 + (id)spriteWithFile:(NSString*)filename;
 - (id)initWithFile:(NSString*)fileName;
