@@ -53,6 +53,9 @@ static const GLfloat textureVertices[] = {
     [self updatePosition];
 
     
+    
+    
+    
     glViewport(_position.x, _position.y, _textureInfo.width, _textureInfo.height);
     
     glActiveTexture(GL_TEXTURE0);

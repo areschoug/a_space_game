@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2903206516299B42003C948A /* CC3Foundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2903205D16299B42003C948A /* CC3Foundation.m */; };
+		2903206616299B42003C948A /* CC3GLMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = 2903205F16299B42003C948A /* CC3GLMatrix.m */; };
+		2903206716299B42003C948A /* CC3Kazmath.c in Sources */ = {isa = PBXBuildFile; fileRef = 2903206016299B42003C948A /* CC3Kazmath.c */; };
+		2903206816299B42003C948A /* CC3Math.m in Sources */ = {isa = PBXBuildFile; fileRef = 2903206416299B42003C948A /* CC3Math.m */; };
 		291BC1251610F1B4007BEDA6 /* Decoration.m in Sources */ = {isa = PBXBuildFile; fileRef = 291BC1241610F1B4007BEDA6 /* Decoration.m */; };
 		291BC1281610F543007BEDA6 /* decoration_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 291BC1271610F543007BEDA6 /* decoration_0.png */; };
 		291BC12B1610F7B3007BEDA6 /* decoration_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 291BC12A1610F7B3007BEDA6 /* decoration_1.png */; };
@@ -56,6 +60,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2903205B16299B42003C948A /* ccTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccTypes.h; sourceTree = "<group>"; };
+		2903205C16299B42003C948A /* CC3Foundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CC3Foundation.h; sourceTree = "<group>"; };
+		2903205D16299B42003C948A /* CC3Foundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CC3Foundation.m; sourceTree = "<group>"; };
+		2903205E16299B42003C948A /* CC3GLMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CC3GLMatrix.h; sourceTree = "<group>"; };
+		2903205F16299B42003C948A /* CC3GLMatrix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CC3GLMatrix.m; sourceTree = "<group>"; };
+		2903206016299B42003C948A /* CC3Kazmath.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CC3Kazmath.c; sourceTree = "<group>"; };
+		2903206116299B42003C948A /* CC3Kazmath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CC3Kazmath.h; sourceTree = "<group>"; };
+		2903206216299B42003C948A /* CC3Logging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CC3Logging.h; sourceTree = "<group>"; };
+		2903206316299B42003C948A /* CC3Math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CC3Math.h; sourceTree = "<group>"; };
+		2903206416299B42003C948A /* CC3Math.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CC3Math.m; sourceTree = "<group>"; };
 		291BC1231610F1B4007BEDA6 /* Decoration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Decoration.h; sourceTree = "<group>"; };
 		291BC1241610F1B4007BEDA6 /* Decoration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Decoration.m; sourceTree = "<group>"; };
 		291BC1271610F543007BEDA6 /* decoration_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = decoration_0.png; sourceTree = "<group>"; };
@@ -135,6 +149,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2903205916299B2C003C948A /* CC3d */ = {
+			isa = PBXGroup;
+			children = (
+				2903205B16299B42003C948A /* ccTypes.h */,
+				2903205C16299B42003C948A /* CC3Foundation.h */,
+				2903205D16299B42003C948A /* CC3Foundation.m */,
+				2903205E16299B42003C948A /* CC3GLMatrix.h */,
+				2903205F16299B42003C948A /* CC3GLMatrix.m */,
+				2903206016299B42003C948A /* CC3Kazmath.c */,
+				2903206116299B42003C948A /* CC3Kazmath.h */,
+				2903206216299B42003C948A /* CC3Logging.h */,
+				2903206316299B42003C948A /* CC3Math.h */,
+				2903206416299B42003C948A /* CC3Math.m */,
+			);
+			path = CC3d;
+			sourceTree = "<group>";
+		};
 		291BC1201610F10C007BEDA6 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
@@ -190,6 +221,7 @@
 		296DDD041608ECF500B58C6D /* OpenGL */ = {
 			isa = PBXGroup;
 			children = (
+				2903205916299B2C003C948A /* CC3d */,
 				29E5B37B161A2C8A00CDA386 /* color_fragment.glsl */,
 				29E5B37C161A2C8B00CDA386 /* color_vertex.glsl */,
 				296DDD051608ED2200B58C6D /* fragment.glsl */,
@@ -382,6 +414,10 @@
 				296DDD201608F39300B58C6D /* Scene.m in Sources */,
 				296DDD231608F3B300B58C6D /* IntroScene.m in Sources */,
 				291BC1251610F1B4007BEDA6 /* Decoration.m in Sources */,
+				2903206516299B42003C948A /* CC3Foundation.m in Sources */,
+				2903206616299B42003C948A /* CC3GLMatrix.m in Sources */,
+				2903206716299B42003C948A /* CC3Kazmath.c in Sources */,
+				2903206816299B42003C948A /* CC3Math.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,10 +494,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Andreas Areschoug (454456593Q)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "a_space_game/a_space_game-Prefix.pch";
 				INFOPLIST_FILE = "a_space_game/a_space_game-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F80D4130-4721-4A54-8AD6-D3AB06371103";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;

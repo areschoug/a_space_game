@@ -80,6 +80,8 @@ static MainView* _sharedDirector = nil;
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glEnable(GL_BLEND);
     
+    glViewport(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    
     if(_nextScene) [self setNextScene];
     [_currentScene visit];
     
