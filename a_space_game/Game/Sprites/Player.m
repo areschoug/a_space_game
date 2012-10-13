@@ -11,12 +11,18 @@
 @implementation Player
 
 - (id)init {
-    self = [super initWithFile:@"player_ship" andDefaultProgram:kDefaultTextureColorProgram];
+    self = [super initWithFile:@"player_ship_test" andDefaultProgram:kDefaultTextureColorProgram];
     if (self) {
         [self setColor:[UIColor colorWithRed:1.000 green:0.996 blue:0.937 alpha:1]];
         [self setRotation:90.0];
     }
     return self;
+}
+
+
+-(void)visit{
+    [super visit];
+    [self setRotation:self.rotation + 1];
 }
 
 @end

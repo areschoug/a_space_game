@@ -62,7 +62,7 @@ static const GLfloat textureVertices[] = {
 
     CC3GLMatrix *projection = [CC3GLMatrix matrix];
     float h = 4.0f * _textureInfo.height / _textureInfo.width;
-    [projection populateFromFrustumLeft:-2 andRight:2 andBottom:-h/2 andTop:h/2 andNear:6 andFar:10];
+    [projection populateFromFrustumLeft:-2 andRight:2 andBottom:-2 andTop:2 andNear:4 andFar:10];
     glUniformMatrix4fv(uniforms[UNIFORM_PROJECTION], 1, 0, projection.glMatrix);
     
     CC3GLMatrix *modelView = [CC3GLMatrix matrix];
