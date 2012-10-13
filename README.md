@@ -5,3 +5,7 @@ To do:
 - Collision detection
 
 Keep in mind:
+
+
+Colors:
+- #FFFEF3 ship

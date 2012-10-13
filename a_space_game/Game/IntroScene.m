@@ -8,15 +8,19 @@
 
 #import "IntroScene.h"
 #import "Decoration.h"
+#import "Player.h"
 
 @implementation IntroScene{
+    Player *_player;
     float _lastAddedDecoration;
 }
 
 - (id)init {
     self = [super init];
     if(self) {
-        
+        _player = [[Player alloc] init];
+        _player.position = CGPointMake(0, 0);
+        [self addChild:_player];
     }
     return self;
 }
@@ -49,6 +53,7 @@
             dec.allowToRemove = YES;
             [self addChild:dec];
         }
+        return;;
         {
             Decoration *dec = [Decoration randomDecoration];
             dec.position = CGPointMake(320.0, 480.0);

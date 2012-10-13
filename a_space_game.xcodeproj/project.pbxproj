@@ -11,6 +11,8 @@
 		2903206616299B42003C948A /* CC3GLMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = 2903205F16299B42003C948A /* CC3GLMatrix.m */; };
 		2903206716299B42003C948A /* CC3Kazmath.c in Sources */ = {isa = PBXBuildFile; fileRef = 2903206016299B42003C948A /* CC3Kazmath.c */; };
 		2903206816299B42003C948A /* CC3Math.m in Sources */ = {isa = PBXBuildFile; fileRef = 2903206416299B42003C948A /* CC3Math.m */; };
+		2903206B1629B470003C948A /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 2903206A1629B470003C948A /* Player.m */; };
+		2903206E1629B8AA003C948A /* player_ship.png in Resources */ = {isa = PBXBuildFile; fileRef = 2903206D1629B8AA003C948A /* player_ship.png */; };
 		291BC1251610F1B4007BEDA6 /* Decoration.m in Sources */ = {isa = PBXBuildFile; fileRef = 291BC1241610F1B4007BEDA6 /* Decoration.m */; };
 		291BC1281610F543007BEDA6 /* decoration_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 291BC1271610F543007BEDA6 /* decoration_0.png */; };
 		291BC12B1610F7B3007BEDA6 /* decoration_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 291BC12A1610F7B3007BEDA6 /* decoration_1.png */; };
@@ -70,8 +72,11 @@
 		2903206216299B42003C948A /* CC3Logging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CC3Logging.h; sourceTree = "<group>"; };
 		2903206316299B42003C948A /* CC3Math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CC3Math.h; sourceTree = "<group>"; };
 		2903206416299B42003C948A /* CC3Math.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CC3Math.m; sourceTree = "<group>"; };
+		290320691629B46F003C948A /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		2903206A1629B470003C948A /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
+		2903206D1629B8AA003C948A /* player_ship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_ship.png; sourceTree = "<group>"; };
 		291BC1231610F1B4007BEDA6 /* Decoration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Decoration.h; sourceTree = "<group>"; };
-		291BC1241610F1B4007BEDA6 /* Decoration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Decoration.m; sourceTree = "<group>"; };
+		291BC1241610F1B4007BEDA6 /* Decoration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Decoration.m; sourceTree = "<group>"; wrapsLines = 1; };
 		291BC1271610F543007BEDA6 /* decoration_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = decoration_0.png; sourceTree = "<group>"; };
 		291BC1291610F755007BEDA6 /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Config.h; path = Framework/Config.h; sourceTree = "<group>"; };
 		291BC12A1610F7B3007BEDA6 /* decoration_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = decoration_1.png; sourceTree = "<group>"; };
@@ -166,6 +171,14 @@
 			path = CC3d;
 			sourceTree = "<group>";
 		};
+		2903206C1629B881003C948A /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				2903206D1629B8AA003C948A /* player_ship.png */,
+			);
+			path = Player;
+			sourceTree = "<group>";
+		};
 		291BC1201610F10C007BEDA6 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
@@ -184,6 +197,8 @@
 			children = (
 				291BC1231610F1B4007BEDA6 /* Decoration.h */,
 				291BC1241610F1B4007BEDA6 /* Decoration.m */,
+				290320691629B46F003C948A /* Player.h */,
+				2903206A1629B470003C948A /* Player.m */,
 			);
 			path = Sprites;
 			sourceTree = "<group>";
@@ -251,6 +266,7 @@
 		296DDD191608ED8100B58C6D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2903206C1629B881003C948A /* Player */,
 				291BC1261610F524007BEDA6 /* Decorations */,
 			);
 			path = Resources;
@@ -393,6 +409,7 @@
 				29E5B382161A2D6F00CDA386 /* decoration_test_0.png in Resources */,
 				29E5B383161A2D6F00CDA386 /* decoration_test_1.png in Resources */,
 				29E5B384161A2D6F00CDA386 /* decoration_test_2.png in Resources */,
+				2903206E1629B8AA003C948A /* player_ship.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,6 +435,7 @@
 				2903206616299B42003C948A /* CC3GLMatrix.m in Sources */,
 				2903206716299B42003C948A /* CC3Kazmath.c in Sources */,
 				2903206816299B42003C948A /* CC3Math.m in Sources */,
+				2903206B1629B470003C948A /* Player.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,6 +12,11 @@
 #import "GLProgram.h"
 #import "ProgramManager.h"
 
+typedef enum{
+    kDefaultTextureProgram,
+    kDefaultTextureColorProgram,
+} DefaultPrograms;
+
 @interface Sprite : Entity
 
 @property (strong, nonatomic) GLKTextureInfo *textureInfo;
@@ -24,5 +29,5 @@
 @property (readwrite, nonatomic) CGFloat rotation;
 
 + (id)spriteWithFile:(NSString*)filename;
-- (id)initWithFile:(NSString*)fileName;
+- (id)initWithFile:(NSString*)fileName andDefaultProgram:(DefaultPrograms)program;
 @end
