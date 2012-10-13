@@ -9,7 +9,17 @@
 #import "Scene.h"
 #import "Sprite.h"
 
-@implementation Scene
+@implementation Scene{
+    NSMutableSet *_remove;
+}
+
+- (id)init {
+    self = [super init];
+    if (self) {
+        _remove = [[NSMutableSet alloc] init];
+    }
+    return self;
+}
 
 -(void)update:(double)td{
 
@@ -21,9 +31,16 @@
         if ([entity isKindOfClass:[Sprite class]]) {
             
             Sprite *sprite = (Sprite *)entity;
-            if (sprite.shouldBeRemoved) sprite = nil;
+            if (sprite.shouldBeRemoved) [_remove addObject:sprite];
+            
         }
     }
+
+    for (Entity *entity in _remove) [self.children removeObject:entity];
+    [_remove removeAllObjects];
 }
+
+
+
 
 @end

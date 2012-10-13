@@ -2,7 +2,6 @@ a_space_game
 ============
 
 To do:
-- Rotate sprite
+- Collision detection
 
 Keep in mind:
-- Remove child. How?

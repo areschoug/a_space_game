@@ -24,6 +24,8 @@
 -(void)update:(NSTimeInterval)td{
     _lastAddedDecoration += td;
     [self clean];
+    
+    
     if (_lastAddedDecoration > kGameDecorationAddRate) {
         
         _lastAddedDecoration = 0;
@@ -47,7 +49,6 @@
             dec.allowToRemove = YES;
             [self addChild:dec];
         }
-        
         {
             Decoration *dec = [Decoration randomDecoration];
             dec.position = CGPointMake(320.0, 480.0);
