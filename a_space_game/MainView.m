@@ -58,7 +58,8 @@ static MainView* _sharedDirector = nil;
     GLKView *view = (GLKView *)self.view;
     view.context = self.context;
     [EAGLContext setCurrentContext:self.context];
-
+    [self setPreferredFramesPerSecond:60.0];
+    
     view.drawableDepthFormat = GLKViewDrawableDepthFormat16;
     view.drawableMultisample = GLKViewDrawableMultisample4X;
     
@@ -79,8 +80,6 @@ static MainView* _sharedDirector = nil;
     glClear(GL_COLOR_BUFFER_BIT);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glEnable(GL_BLEND);
-    
-    glViewport(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     
     if(_nextScene) [self setNextScene];
     [_currentScene visit];

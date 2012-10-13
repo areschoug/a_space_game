@@ -7,12 +7,13 @@
 //
 
 #import "Sprite.h"
+#import "CC3GLMatrix.h"
 
 static const GLfloat squareVertices[] = {
-    -1.0f, -1.0f,
-    1.0f, -1.0f,
-    -1.0f,  1.0f,
-    1.0f,  1.0f,
+    -1.0f, -1.0f, 1.0f,
+    1.0f, -1.0f,  1.0f,
+    -1.0f,  1.0f,  1.0f,
+    1.0f,  1.0f,  1.0f,
 };
 
 static const GLfloat textureVertices[] = {
@@ -21,6 +22,7 @@ static const GLfloat textureVertices[] = {
     0.0f,  1.0f,
     0.0f,  0.0f,
 };
+
 
 @interface Sprite()
 
@@ -52,24 +54,30 @@ static const GLfloat textureVertices[] = {
     [_program use];
     [self updatePosition];
 
+    //PROJECTION
+    CC3GLMatrix *projection = [CC3GLMatrix matrix];
+    float h = 4.0f * _textureInfo.height / _textureInfo.width;
+    [projection populateFromFrustumLeft:-2 andRight:2 andBottom:-h/2 andTop:h/2 andNear:4 andFar:10];
+    glUniformMatrix4fv(uniforms[UNIFORM_PROJECTION], 1, 0, projection.glMatrix);
     
+    CC3GLMatrix *modelView = [CC3GLMatrix matrix];
+    [modelView populateFromTranslation:CC3VectorMake(0, 0, -7)];
+    [modelView rotateByZ:(sin(CACurrentMediaTime()) + 1.0) * 180];
+    glUniformMatrix4fv(uniforms[UNIFORM_MODELVIEW], 1, 0, modelView.glMatrix);
     
-    
+    glUniform4f(uniforms[UNIFORM_COLOR], _colorValues[0], _colorValues[1], _colorValues[2], _colorValues[3]);
     
     glViewport(_position.x, _position.y, _textureInfo.width, _textureInfo.height);
     
-    glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, _textureInfo.name);
-    
-    glUniform4f(uniforms[UNIFORM_COLOR], _colorValues[0], _colorValues[1], _colorValues[2], _colorValues[3]);
-
-    glVertexAttribPointer(ATTRIB_VERTEX, 2, GL_FLOAT, 0, 0, squareVertices);
+    glVertexAttribPointer(ATTRIB_VERTEX, 3, GL_FLOAT, 0, 0, squareVertices);
 	glEnableVertexAttribArray(ATTRIB_VERTEX);
 	glVertexAttribPointer(ATTRIB_TEXTUREPOSITON, 2, GL_FLOAT, 0, 0, textureVertices);
 	glEnableVertexAttribArray(ATTRIB_TEXTUREPOSITON);
 
-
-
+    
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, _textureInfo.name);
+    
     
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 

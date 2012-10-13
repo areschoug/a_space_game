@@ -73,13 +73,13 @@
     NSString *vertShaderPathname = [[NSBundle mainBundle] pathForResource:vertexShaderName ofType:@"glsl"];
     if (![self compileShader:&vertexShader type:GL_VERTEX_SHADER file:vertShaderPathname]){
         NSLog(@"Failed to compile vertex shader");
-        return FALSE;
+        return NO;
     }
     
     NSString *fragShaderPathname = [[NSBundle mainBundle] pathForResource:fragmentShaderName ofType:@"glsl"];
     if (![self compileShader:&fragShader type:GL_FRAGMENT_SHADER file:fragShaderPathname]){
         NSLog(@"Failed to compile fragment shader");
-        return FALSE;
+        return NO;
     }
     
     glAttachShader(*programPointer, vertexShader);
@@ -107,16 +107,18 @@
             *programPointer = 0;
         }
         
-        return FALSE;
+        return NO;
     }
     
     uniforms[UNIFORM_TEXTURE] = glGetUniformLocation(*programPointer, "textureFrame");
     uniforms[UNIFORM_COLOR] = glGetUniformLocation(*programPointer, "color");
+    uniforms[UNIFORM_PROJECTION] = glGetUniformLocation(*programPointer, "projection");
+    uniforms[UNIFORM_MODELVIEW] = glGetUniformLocation(*programPointer, "modelview");
     
     if (vertexShader) glDeleteShader(vertexShader);
     if (fragShader) glDeleteShader(fragShader);
     
-    return TRUE;
+    return YES;
 }
 
 - (BOOL)compileShader:(GLuint *)shader type:(GLenum)type file:(NSString *)file {
@@ -126,7 +128,7 @@
     source = (GLchar *)[[NSString stringWithContentsOfFile:file encoding:NSUTF8StringEncoding error:nil] UTF8String];
     if (!source){
         NSLog(@"Failed to load vertex shader");
-        return FALSE;
+        return NO;
     }
     
     *shader = glCreateShader(type);
@@ -136,10 +138,10 @@
     glGetShaderiv(*shader, GL_COMPILE_STATUS, &status);
     if (status == 0){
         glDeleteShader(*shader);
-        return FALSE;
+        return NO;
     }
     
-    return TRUE;
+    return YES;
 }
 
 - (BOOL)linkProgram:(GLuint)prog {
@@ -148,10 +150,9 @@
     glLinkProgram(prog);
     
     glGetProgramiv(prog, GL_LINK_STATUS, &status);
-    if (status == 0)
-        return FALSE;
+    if (status == 0) return NO;
     
-    return TRUE;
+    return YES;
 }
 
 - (BOOL)validateProgram:(GLuint)prog {
@@ -168,10 +169,10 @@
     
     glGetProgramiv(prog, GL_VALIDATE_STATUS, &status);
     if (status == 0){
-        return FALSE;
+        return NO;
     }
     
-    return TRUE;
+    return YES;
 }
 
 - (void)use {
